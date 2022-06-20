@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+
+
+    <item
+        android:id="@+id/worker_navigationHome"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/worker_navigationReviews"
+        android:icon="@drawable/ic_review"
+        android:title="Reviews" />
+
+    <item
+        android:id="@+id/worker_navigationChats"
+        android:icon="@drawable/ic_chat"
+        android:title="Chats" />
+
+    <item
+        android:id="@+id/worker_navigationMyProfile"
+        android:icon="@drawable/ic_user"
+        android:title="User" />
+
+</menu>

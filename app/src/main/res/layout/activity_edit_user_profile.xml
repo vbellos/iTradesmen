@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".User.EditUserProfileActivity"
+    android:background="@color/contentBodyColor">
+
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/profilePrimaryDark"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/TransparentText">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout"
+                android:background="@drawable/profile_bk">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/edit_user_image"
+
+                    android:src="@drawable/default_avatar"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:padding="4dp"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    android:scaleType="centerCrop"
+
+                    app:strokeColor="@color/purple_500"
+                    app:strokeWidth="2dp"
+                    />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/contentBodyColor">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/profile_bk" />
+
+
+                    <TextView
+                        android:id="@+id/finish_user_changePictureBTN"
+                        style="@style/ProfileImageButton"
+                        android:text="Change\nPicture" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".User.ViewUserProfileActivity"
+        tools:showIn="@layout/activity_edit_user_profile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/contentBodyColor"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                style="@style/headerText"
+                android:layout_marginBottom="20dp"
+                android:text="Account Info"
+                android:textColor="@color/contentTextColor"/>
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/nameImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_user_white"
+                    android:textColor="@color/contentTextColor" />
+
+
+                <EditText
+                    android:id="@+id/edit_user_Name2TXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/nameImageView"
+                    android:hint="Name"
+                    android:textColor="@color/contentTextColor" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/mobileImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_phone_white"
+                    android:textColor="@color/contentTextColor"
+                    />
+
+                <EditText
+                    android:id="@+id/edit_user_PhoneTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/mobileImageView"
+                    android:hint="Mobile"
+                    android:textColor="@color/contentTextColor" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/emailImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_email_white"
+                    android:textColor="@color/contentTextColor"/>
+
+
+                <EditText
+                    android:id="@+id/edit_user_EmailTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/emailImageView"
+                    android:hint="Email"
+                    android:textColor="@color/contentTextColor" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <RelativeLayout
+                android:id="@+id/finish_user_job_layout"
+                style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/dobImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_job_white" />
+
+                <TextView
+                    style="@style/profileDetailsTextMain"
+                    android:layout_toRightOf="@id/dobImageView"
+                    android:text="Job"
+                    android:textColor="@color/contentTextColor"/>
+
+                <TextView
+                    android:id="@+id/edit_worker_JobTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_toRightOf="@id/dobImageView"
+                    android:text="worker job"
+                    android:textColor="@color/contentTextColor"/>
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/edit_user_desc_layout"
+                style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/addressImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_description"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <EditText
+                    android:id="@+id/edit_worker_DescriptionTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="0dp"
+
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/addressImageView"
+                    android:layout_toRightOf="@id/addressImageView"
+                    android:hint="Job Description"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/addressImageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@color/contentTextColor"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <Button
+                android:id="@+id/edit_user_saveBTN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="SaveChanges"
+                android:text="Save Changes" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

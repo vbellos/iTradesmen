@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--colors for dark mode-->
+    <color name="contentBodyColor">#000</color>
+    <color name="contentBodyColorSecondary">#2A2E43</color>
+    <color name="contentTextColor">#fff</color>
+    <color name="miniTitle">#fff</color>
+    <color name="bottomNavigationBackground">#000</color>
+    <color name="miniTitleColor">#fff</color>
+
+
+    <color name="lightTextColor">#eef1f6</color>
+    <color name="lightColorOverlay">#1Aeef1f6</color>
+
+
+    <color name="messageColor">#2A2E43</color>
+
+</resources>

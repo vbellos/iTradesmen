@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User.FinishUserProfileActivity"
+    android:fitsSystemWindows="true"
+    android:background="@color/contentBodyColor"
+    >
+
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/profilePrimaryDark"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/TransparentText">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout"
+                android:background="@drawable/profile_bk">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/finish_user_image"
+
+                    android:src="@drawable/default_avatar"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:padding="4dp"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    android:scaleType="centerCrop"
+
+                    app:strokeColor="@color/purple_500"
+                    app:strokeWidth="2dp"
+                    />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/profileBackground">
+
+                    <View
+                        android:layout_alignParentTop="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:background="@drawable/profile_bk"/>
+
+
+                    <TextView
+                        android:id="@+id/finish_user_changePictureBTN"
+                        style="@style/ProfileImageButton"
+                        android:text="Upload\nPicture" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".User.ViewUserProfileActivity"
+        tools:showIn="@layout/activity_edit_user_profile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/relativeLayout"
+                style="@style/profileDetailsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RadioGroup
+                    android:id="@+id/f_radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Register as:"
+                        android:textSize="16sp" />
+
+                    <RadioButton
+                        android:id="@+id/f_radioButtonClient"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Client"
+                        android:textColor="@android:color/secondary_text_light" />
+
+                    <RadioButton
+                        android:id="@+id/f_radioButtonWorker"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Worker"
+                        android:textColor="@android:color/secondary_text_light" />
+                </RadioGroup>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/nameImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_user_white" />
+
+
+                <EditText
+                    android:id="@+id/finish_user_NameTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/nameImageView"
+                    android:hint="Name" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/mobileImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_phone_white" />
+
+                <EditText
+                    android:id="@+id/finish_user_PhoneTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/mobileImageView"
+                    android:hint="Mobile" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/emailImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_email_white" />
+
+
+                <EditText
+                    android:id="@+id/finish_user_EmailTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/emailImageView"
+                    android:enabled="false"
+                    android:hint="Email" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/finish_user_job_layout"
+                style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/dobImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_job_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Spinner
+                    android:id="@+id/finish_user_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dobImageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/finish_user_desc_layout"
+                style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/addressImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_description"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <EditText
+                    android:id="@+id/finish_worker_DescriptionTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="0dp"
+
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/addressImageView"
+                    android:layout_toRightOf="@id/addressImageView"
+                    android:hint="Job Description"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/addressImageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <Button
+                android:id="@+id/finish_user_saveBTN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Finish Profile" />
+
+            <Button
+                android:id="@+id/finish_user_cancelBTN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancel" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

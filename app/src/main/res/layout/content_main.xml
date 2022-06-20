@@ -1,0 +1,22 @@
+<!--Example with RelativeLayout and Gradient Drawable -->
+<!-- for Recycler view use any of the layout as model-->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="15dp"
+    app:cardPreventCornerOverlap="true"
+    android:layout_marginTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="100dp"
+        android:background="@drawable/profile_bk"
+        android:padding="10dp">
+
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

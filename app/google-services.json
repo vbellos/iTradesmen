@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "58178900385",
+    "firebase_url": "https://itradesman-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "itradesman",
+    "storage_bucket": "itradesman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58178900385:android:9f5fe07bafb77794c7bbe0",
+        "android_client_info": {
+          "package_name": "com.vbellos.dev.itradesmen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58178900385-pbkhngac8r3qggcpnq1ake3esb2sd16p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATBoHgVBX3CcMwBmmBFAsfsmNugPkeuEs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58178900385-pbkhngac8r3qggcpnq1ake3esb2sd16p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

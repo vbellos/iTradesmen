@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".User.ViewUserProfileActivity"
+    android:background="@color/contentBodyColor">
+
+    <com.google.android.material.appbar.AppBarLayout
+
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/profilePrimaryDark"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/TransparentText">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout"
+                android:background="@drawable/profile_bk">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/worker_home_image"
+
+                    android:src="@drawable/default_avatar"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:padding="4dp"
+                    app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                    android:scaleType="centerCrop"
+
+                    app:strokeColor="@color/purple_500"
+                    app:strokeWidth="2dp"
+                    />
+
+                <TextView
+                    android:id="@+id/view_user_NameTXT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textSize="28dp"
+                    android:textStyle="bold" />
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/contentBodyColor">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/profile_bk" />
+
+                    <TextView
+                        android:id="@+id/sendMessage"
+                        style="@style/profileStyledSendMessageButton"
+                        android:text="Send \n Message" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/contentBodyColor"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".User.ViewUserProfileActivity"
+        tools:showIn="@layout/activity_view_user_profile">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/headerText"
+                android:layout_marginBottom="20dp"
+                android:text="Account Info"
+                android:textColor="@color/contentTextColor" />
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/nameImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_user_white" />
+
+                <TextView
+                    android:id="@+id/nameTextView"
+                    style="@style/profileDetailsTextMain"
+                    android:layout_toRightOf="@id/nameImageView"
+                    android:text="Name" />
+
+                <TextView
+                    android:id="@+id/view_user_Name2TXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_toRightOf="@id/nameImageView"
+                    android:text="developer" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/mobileImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_phone_white" />
+
+                <TextView
+                    style="@style/profileDetailsTextMain"
+                    android:layout_toRightOf="@id/mobileImageView"
+                    android:text="Mobile" />
+
+                <TextView
+                    android:id="@+id/view_user_PhoneTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_toRightOf="@id/mobileImageView"
+                    android:text="+91-8129999999" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <RelativeLayout style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/emailImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_email_white" />
+
+                <TextView
+                    style="@style/profileDetailsTextMain"
+                    android:layout_toRightOf="@id/emailImageView"
+                    android:text="Email" />
+
+                <TextView
+                    android:id="@+id/view_user_EmailTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_toRightOf="@id/emailImageView"
+                    android:text="developer@itradesmen.com" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <RelativeLayout
+                android:id="@+id/view_user_job_layout"
+                style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/dobImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_job_white" />
+
+                <TextView
+                    style="@style/profileDetailsTextMain"
+                    android:layout_toRightOf="@id/dobImageView"
+                    android:text="Job" />
+
+                <TextView
+                    android:id="@+id/view_worker_JobTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_toRightOf="@id/dobImageView"
+                    android:text="worker job" />
+
+            </RelativeLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/view_user_desc_layout"
+                style="@style/profileDetailsLayout">
+
+                <ImageView
+                    android:id="@+id/addressImageView"
+                    style="@style/profileDetailsImage"
+                    android:src="@drawable/ic_description"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/profileDetailsTextMain"
+                    android:text="Description"
+                    app:layout_constraintLeft_toRightOf="@id/addressImageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/view_worker_DescriptionTXT"
+                    style="@style/profileDetailsMiniText"
+                    android:layout_width="0dp"
+
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/addressImageView"
+                    android:layout_toRightOf="@id/addressImageView"
+                    android:text="Job Description"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/addressImageView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View style="@style/proifleDetailsView" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/worker_reviews_container"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:visibility="visible">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/view_user_reviews_tablayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/contentBodyColor"
+                    app:layout_constraintBottom_toTopOf="@+id/view_user_reviews_pager"
+                    app:layout_constraintEnd_toEndOf="@+id/view_user_reviews_pager"
+                    app:layout_constraintStart_toStartOf="@+id/view_user_reviews_pager"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tabGravity="fill"
+                    app:tabSelectedTextColor="@color/colorAccent"
+                    app:tabTextColor="@color/lightTextColor">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reviews"
+
+                        />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Review" />
+
+                </com.google.android.material.tabs.TabLayout>
+
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_user_reviews_pager"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/contentBodyColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_user_reviews_tablayout" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
