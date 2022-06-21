@@ -75,6 +75,10 @@ public class HomeActivity extends AppCompatActivity implements LocationListener 
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
+
+        LocationTrack();
+
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         notifications = prefs.getBoolean("notifications", false);
 
@@ -129,7 +133,7 @@ public class HomeActivity extends AppCompatActivity implements LocationListener 
 
 
 
-        LocationTrack();
+        //LocationTrack();
 
 
         userSettingsFragment.setNotificationsChanged(new UserSettingsFragment.NotificationsChanged() {
@@ -313,9 +317,11 @@ public class HomeActivity extends AppCompatActivity implements LocationListener 
             public void onClick(DialogInterface dialog, int which) {
                 startActivity(
                         new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                HomeActivity.this.recreate();
             }
+
         });
-        builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(" Exit", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
                 HomeActivity.this.finish();

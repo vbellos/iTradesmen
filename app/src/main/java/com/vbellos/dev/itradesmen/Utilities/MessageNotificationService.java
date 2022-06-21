@@ -59,7 +59,7 @@ public class MessageNotificationService extends Worker {
                     .putString("user_id", id)
                     .build();
             PeriodicWorkRequest periodicWorkRequest = new PeriodicWorkRequest
-                    .Builder(MessageNotificationService.class, 15, TimeUnit.MINUTES)
+                    .Builder(MessageNotificationService.class, 15, TimeUnit.SECONDS)
                     .addTag("periodic")
 
                     .setConstraints(setCons())

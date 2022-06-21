@@ -272,9 +272,10 @@ public class WorkerHomeActivity extends AppCompatActivity implements LocationLis
             public void onClick(DialogInterface dialog, int which) {
                 startActivity(
                         new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                WorkerHomeActivity.this.recreate();
             }
         });
-        builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
                 WorkerHomeActivity.this.finish();
