@@ -108,8 +108,8 @@
 
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="App ver 1.3.3"
-            android:textAlignment="center"/>
+            android:text="App ver 1.0.1"
+            android:textAlignment="center" />
 
     </LinearLayout>
 </ScrollView>
