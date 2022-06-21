@@ -129,7 +129,7 @@ public class WorkersListLoader {
                                             worker.setWorker_location(worker_location);
                                             double d = distance(location.getLatitude(),location.getLongitude(),worker_location.getLat(),worker_location.getLng());
                                             DecimalFormat df = new DecimalFormat("#.#");
-                                            worker.setDistance(Double.valueOf(df.format(d)));
+                                            worker.setDistance(Double.valueOf(df.format(d).replaceAll(",", ".")));
                                             add(worker);
                                         }
                                         @Override

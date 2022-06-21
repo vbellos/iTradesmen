@@ -1,6 +1,7 @@
 package com.vbellos.dev.itradesmen.Client;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -50,6 +52,9 @@ public class HomeActivity extends AppCompatActivity implements LocationListener 
     TextView textView;
     Location location;
 
+    LocationManager locationManager;
+
+
 
 
     UserSettingsFragment userSettingsFragment;
@@ -68,6 +73,7 @@ public class HomeActivity extends AppCompatActivity implements LocationListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         notifications = prefs.getBoolean("notifications", false);
@@ -159,15 +165,22 @@ public class HomeActivity extends AppCompatActivity implements LocationListener 
                         break;
                     case R.id.navigationHome:
                         ClientHomeFragment clientHomeFragment = new ClientHomeFragment();
-                        if(location == null){LocationTrack();}
-                        clientHomeFragment.setLocation(location);
-                        selected_fragment = clientHomeFragment;
+                        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                            if (location == null) { LocationTrack(); }
+                            clientHomeFragment.setLocation(location);
+                            selected_fragment = clientHomeFragment;
+
+                        }
                         break;
                     case R.id.navigationSearch:
                         SearchWorkersFragment searchWorkersFragment = new SearchWorkersFragment();
-                        if(location == null){LocationTrack();}
-                        searchWorkersFragment.setLocation(location);
-                        selected_fragment = searchWorkersFragment;
+                        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                            if (location == null) {
+                                LocationTrack();
+                            }
+                            searchWorkersFragment.setLocation(location);
+                            selected_fragment = searchWorkersFragment;
+                        }
                         break;
                 }
                 item.setChecked(true);
@@ -244,20 +257,21 @@ public class HomeActivity extends AppCompatActivity implements LocationListener 
     public void LocationTrack()
     {
         requestPermission();
-        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
 
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, this);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
             Criteria criteria = new Criteria();
-            String bestProvider = locationManager.getBestProvider(criteria, true);
-            Location location = locationManager.getLastKnownLocation(bestProvider);
-            if(location!=null){
-                this.location = location;
+            if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                String bestProvider = locationManager.getBestProvider(criteria, true);
+                Location location = locationManager.getLastKnownLocation(bestProvider);
+                if (location != null) {
+                    this.location = location;
 
-                locationManager.removeUpdates(this);
+                    locationManager.removeUpdates(this);
 
+                }
             }
 
 
@@ -280,11 +294,34 @@ public class HomeActivity extends AppCompatActivity implements LocationListener 
 
     @Override
     public void onProviderEnabled(@NonNull String provider) {
-        LocationListener.super.onProviderEnabled(provider);
     }
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-        LocationListener.super.onProviderDisabled(provider);
+
+        showDialogGPS();
+    }
+
+
+    private void showDialogGPS() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setTitle("Enable GPS");
+        builder.setMessage("Please enable GPS");
+        builder.setInverseBackgroundForced(true);
+        builder.setPositiveButton("Enable", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(
+                        new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+            }
+        });
+        builder.setNegativeButton("Ignore", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                HomeActivity.this.finish();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

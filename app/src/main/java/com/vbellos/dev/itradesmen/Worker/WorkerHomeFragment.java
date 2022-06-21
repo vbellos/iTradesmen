@@ -68,7 +68,7 @@ public class WorkerHomeFragment extends Fragment{
         nameTXT = view.findViewById(R.id.worker_home_NameTXT);
         last_locTXT = view.findViewById(R.id.worker_home_last_loc);
         lat_updateTXT = view.findViewById(R.id.worker_home_last_loc_update);
-        mapView = view.findViewById(R.id.client_home_map_frag);
+        mapView = view.findViewById(R.id.worker_home_map_frag);
         ratingBar = view.findViewById(R.id.worker_home_ratingBar);
         reviews_count = view.findViewById(R.id.worker_home_reviews_count);
         mapsFragment = new CurrentLocMapsFragment();

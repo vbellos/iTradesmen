@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (user.isWorker()) {
                     WorkerHome();
                 } else {
-                    email.setText("peos");
+
                     UserHome();
                 }
             }
